@@ -1,0 +1,19 @@
+{
+  "release": "v2.6.4-r12",
+  "auditDate": "2026-07-31",
+  "githubPagesReady": true,
+  "records": 204,
+  "uniqueHip": 204,
+  "uniqueIauNames": 204,
+  "uniqueSkyKeys": 204,
+  "pages": 16,
+  "scientificLinksPerStar": 4,
+  "scientificSources": ["SIMBAD", "VizieR/Hipparcos", "IAU/WGSN", "Aladin Lite"],
+  "selectionFailures": 0,
+  "reportFailures": 0,
+  "missingRoutes": 0,
+  "duplicateHtmlIds": 0,
+  "buttonAuditWarnings": 0,
+  "javascriptSyntaxErrors": 0,
+  "sha256": "156d93f8bc9c93258e4ccfbd3cdfb878165e69239cbe4d1dff675d8fce4f66e6"
+}
