@@ -4,9 +4,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
-<title>نجوم العرب v2.6.4-r12 — نسخة GitHub Pages المدققة</title>
+<title>نجوم العرب v2.6.4-r16 — دقة CDS العالية والتحقق بهوية HIP في Aladin</title>
 <meta content="نجوم العرب" name="application-name"/>
-<meta content="2.6.4-r12" name="application-version"/>
+<meta content="2.6.4-r16" name="application-version"/>
 <script id="release-storage-migration-v260">
 (function(){
   "use strict";
@@ -123,8 +123,23 @@ footer{text-align:center;color:var(--muted);padding:34px 0}
 #aladinLitePanel{height:520px;width:100%;direction:ltr}
 .aladinPlaceholder{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:30px;color:var(--muted);background:radial-gradient(circle at 50% 30%,rgba(25,58,115,.52),rgba(2,5,18,.94) 70%)}
 .aladinPlaceholder b{display:block;color:var(--gold2);font-size:1.45rem;margin-bottom:8px}
+.aladinTargetBanner{position:absolute;z-index:35;top:12px;left:50%;transform:translateX(-50%);min-width:min(78%,560px);max-width:calc(100% - 150px);padding:9px 16px;border:1px solid rgba(255,214,112,.72);border-radius:16px;background:linear-gradient(135deg,rgba(3,11,31,.94),rgba(29,45,76,.92));box-shadow:0 10px 28px rgba(0,0,0,.42),0 0 18px rgba(255,209,97,.14);text-align:center;direction:rtl;pointer-events:none;backdrop-filter:blur(8px)}
+.aladinTargetBanner strong{display:block;color:var(--gold2);font-size:1.02rem;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.aladinTargetBanner span{display:block;color:#e8edf8;font-size:.78rem;line-height:1.5;direction:ltr;unicode-bidi:embed;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.aladinTargetSummary{margin:0 0 10px;padding:9px 13px;border:1px solid rgba(255,214,112,.26);border-radius:14px;background:rgba(255,214,112,.07);color:#f3f5fb;text-align:right;line-height:1.65}
+.aladinTargetSummary b{color:var(--gold2)}
+@media(max-width:760px){.aladinTargetBanner{top:58px;max-width:calc(100% - 24px);min-width:calc(100% - 24px)}.aladinTargetBanner strong{font-size:.92rem}.aladinTargetBanner span{font-size:.7rem}}
 .sourceMiniActions{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
 .sourceMiniActions button{padding:7px 9px;font-size:.8rem}
+.sourceMiniActions a{display:inline-flex;align-items:center;justify-content:center;padding:7px 9px;font-size:.8rem;border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,#28354a,#1d2739);color:#f4f6fb;text-decoration:none;font-weight:700;cursor:pointer}
+.sourceMiniActions a:hover{border-color:rgba(255,215,111,.62);background:linear-gradient(180deg,#39465a,#263247)}
+.aladinPrecisionGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0 0 10px}
+.aladinPrecisionItem{padding:10px 12px;border:1px solid rgba(122,184,255,.2);border-radius:13px;background:rgba(10,24,48,.62);min-width:0}
+.aladinPrecisionItem span{display:block;color:#9fb2d4;font-size:.73rem;margin-bottom:4px}
+.aladinPrecisionItem strong{display:block;color:#f4f7ff;font-size:.82rem;line-height:1.55;overflow-wrap:anywhere}
+.aladinPrecisionItem strong.ok{color:#7ef0bd}.aladinPrecisionItem strong.warn{color:#ffd878}.aladinPrecisionItem strong.bad{color:#ff9b9b}
+@media(max-width:760px){.aladinPrecisionGrid{grid-template-columns:1fr}}
+
 .domeMiniActions{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
 .domeMiniActions button{padding:6px 8px;font-size:.78rem;pointer-events:auto}
 .sourceDirectory{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
@@ -817,9 +832,38 @@ body:has(#dashboard.active) main.wrap{max-width:none!important;padding:0!importa
 .dedicationUnion{color:#8fd4eb;border-top:1px solid rgba(255,209,116,.18);padding-top:13px;margin-top:14px}
 @media(max-width:760px){.cinemaDedicationButton{grid-template-columns:38px 1fr 18px;padding:9px}.cinemaDedicationGlyph{width:34px;height:34px}.cinemaDedicationLabel b{font-size:15px}.cinemaDedicationLabel small{font-size:10px}.dedicationDialog{padding:28px 14px}.dedicationTextArt{font-size:16px;line-height:1.95}}
 </style>
+
+<style id="najoom-r12-report-meta-fix">
+/* v2.6.4-r16 — وضوح تاريخ التقرير ووقت المحاكاة وموقع الراصد */
+#reports .releaseReportHeader{color:#172033}
+#reports .releaseReportHeader .releaseReportVersion{margin:4px 0 14px;color:#74839b}
+#reports .releaseReportHeader .reportMetaTable{width:100%;margin:12px 0 16px;border-collapse:separate;border-spacing:0;table-layout:fixed;border:1px solid #d5dbe5;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(8,28,58,.06)}
+#reports .releaseReportHeader .reportMetaTable th,
+#reports .releaseReportHeader .reportMetaTable td{padding:13px 16px!important;border:0!important;border-bottom:1px solid #dbe1e9!important;vertical-align:middle;line-height:1.65;text-align:right!important;-webkit-user-select:none;user-select:none}
+#reports .releaseReportHeader .reportMetaTable tr:last-child th,
+#reports .releaseReportHeader .reportMetaTable tr:last-child td{border-bottom:0!important}
+#reports .releaseReportHeader .reportMetaTable th{width:31%;background:#0a1d3d!important;color:#f6d583!important;font-weight:900;letter-spacing:.01em}
+#reports .releaseReportHeader .reportMetaTable td{background:#ffffff!important;color:#172033!important;font-weight:800;unicode-bidi:plaintext}
+#reports .releaseReportHeader .reportMetaTable th::selection,
+#reports .releaseReportHeader .reportMetaTable td::selection,
+#reports .releaseReportHeader .reportMetaTable *::selection{background:transparent!important;color:inherit!important}
+#reports .releaseReportHeader .releaseReportNote{color:#46556b!important;background:#fffaf0;border-right:4px solid #d9a53f!important;border-radius:9px;padding:10px 13px!important;margin-top:14px}
+@media(max-width:680px){
+  #reports .releaseReportHeader .reportMetaTable{table-layout:auto}
+  #reports .releaseReportHeader .reportMetaTable th,
+  #reports .releaseReportHeader .reportMetaTable td{display:block;width:100%!important}
+  #reports .releaseReportHeader .reportMetaTable th{padding-bottom:7px!important}
+  #reports .releaseReportHeader .reportMetaTable td{padding-top:9px!important}
+}
+@media print{
+  #reports .releaseReportHeader .reportMetaTable{box-shadow:none}
+  #reports .releaseReportHeader .reportMetaTable th{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+<meta content="CDS/Sesame HIP resolver, 8-decimal resolved coordinates, angular-offset audit, direct external anchor" name="release-notes"/>
 </head>
 <body>
-<!-- ALBAZ bilingual UI build v2.6.4-r1: Arabic/English runtime translation, RTL/LTR switching, persistent language preference. -->
+<!-- ALBAZ bilingual UI build v2.6.4-r16: Arabic/English runtime translation, RTL/LTR switching, persistent language preference. -->
 <header><div class="wrap head"><div class="brand"><img class="logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgMTI4IDEyOCI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJnIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMxZDRmODkiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMjA1MTIiLz48L3JhZGlhbEdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgcng9IjMwIiBmaWxsPSJ1cmwoI2cpIi8+PGNpcmNsZSBjeD0iNjQiIGN5PSI2NCIgcj0iNDMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Y1Yzc2YSIgc3Ryb2tlLXdpZHRoPSIzIi8+PHBhdGggZD0iTTY0IDI1bDcgMjcgMjcgNy0yNyA3LTcgMjctNy0yNy0yNy03IDI3LTd6IiBmaWxsPSIjZmZlMmE0Ii8+PGNpcmNsZSBjeD0iOTEiIGN5PSIzNCIgcj0iNCIgZmlsbD0iIzY0ZDhmZiIvPjwvc3ZnPg=="/><div><h1>نجوم العرب</h1><div class="sub">أطلس فلكي عربي تفاعلي للرصد والاستكشاف</div></div></div>
 <div class="dedicationStandaloneWrap" data-no-i18n="true">
 <button aria-label="فتح الإهداء" class="dedicationStandaloneBtn" id="dedicationStandaloneBtn" onclick="openNajoomDedication()" type="button">
@@ -850,7 +894,7 @@ body:has(#dashboard.active) main.wrap{max-width:none!important;padding:0!importa
   <aside class="r11Sidebar" id="r11Sidebar" aria-label="التنقل الرئيسي">
     <div class="r11Brand">
       <div class="r11Logo">✦</div>
-      <div><strong>نجوم العرب</strong><small>NAJOOM AL-ARAB</small><em>v2.6.4-r11</em></div>
+      <div><strong>نجوم العرب</strong><small>NAJOOM AL-ARAB</small><em>v2.6.4-r16</em></div>
     </div>
     <nav class="r11Nav">
       <button class="active" data-page="dashboard" onclick="go('dashboard')"><i>⌂</i><span>القيادة</span></button>
@@ -1224,7 +1268,7 @@ body:has(#dashboard.active) main.wrap{max-width:none!important;padding:0!importa
 <section class="panel releaseStatusPanel">
 <div class="releaseSectionHeader">
 <div><h2 id="releaseStatusTitle">حالة برنامج نجوم العرب</h2><p id="releaseStatusLead">لوحة موحدة لسلامة البيانات والربط التقني ومستوى اكتمال المراجعة العلمية.</p></div>
-<span class="releaseBadge" id="releaseStatusVersion">v2.6.4-r2</span>
+<span class="releaseBadge" id="releaseStatusVersion">v2.6.4-r16</span>
 </div>
 <div class="releaseStatusGrid">
 <article><span id="releaseLabelTotal">إجمالي السجلات</span><b id="releaseTotal">—</b><small id="releaseTotalNote">الكتالوج العربي</small></article>
@@ -1280,7 +1324,7 @@ body:has(#dashboard.active) main.wrap{max-width:none!important;padding:0!importa
 <button onclick="openSelectedEvidence()" type="button">تحرير الأدلة</button>
 <button onclick="openOfficialSource('simbad')" type="button">SIMBAD</button>
 <button onclick="openOfficialSource('vizier')" type="button">Hipparcos / VizieR</button>
-<button onclick="openOfficialSource('iau')" type="button">IAU / WGSN</button>
+<button onclick="openOfficialSource('iau')" type="button">مرجع IAU / WGSN</button>
 <button onclick="loadAladinForSelected()" type="button">Aladin Lite</button>
 <button class="wide" onclick="copySelectedCitation()" type="button">نسخ مرجع الاستعلام العلمي</button>
 <button onclick="generateConnectionsReport()" type="button">تقرير الارتباطات</button>
@@ -1312,11 +1356,22 @@ body:has(#dashboard.active) main.wrap{max-width:none!important;padding:0!importa
 <div class="sourceMiniActions">
 <button onclick="loadAladinForSelected()" type="button">تحميل المشهد</button>
 <button onclick="closeAladinPanel()" type="button">إغلاق</button>
-<button onclick="openOfficialSource('aladin')" type="button">فتح الموقع</button>
+<a href="https://aladin.cds.unistra.fr/AladinLite/" id="aladinExternalButton" rel="noopener noreferrer" target="_blank">فتح النجم المحدد في الموقع</a>
 </div>
+</div>
+<div class="aladinTargetSummary" id="aladinTargetSummary"><b>النجم المستهدف:</b> لم يُحدّد بعد.</div>
+<div class="aladinPrecisionGrid" id="aladinPrecisionGrid">
+  <div class="aladinPrecisionItem"><span>هوية الاستعلام الخارجي</span><strong id="aladinIdentityCheck">بانتظار اختيار نجم</strong></div>
+  <div class="aladinPrecisionItem"><span>موضع CDS / Sesame المحلول</span><strong id="aladinResolvedCoords">يظهر بعد تحميل المشهد</strong></div>
+  <div class="aladinPrecisionItem"><span>الموضع المحلي المضمّن</span><strong id="aladinLocalCoords">—</strong></div>
+  <div class="aladinPrecisionItem"><span>فرق الموضع المحلي عن CDS</span><strong id="aladinCoordinateOffset">—</strong></div>
 </div>
 <div class="aladinShell">
 <div id="aladinLitePanel"></div>
+<div class="aladinTargetBanner" id="aladinTargetBanner" aria-live="polite">
+<strong id="aladinTargetName">اختر نجمًا من مركز الارتباطات</strong>
+<span id="aladinTargetMeta">IAU · HIP · RA/Dec J2000</span>
+</div>
 <div class="aladinPlaceholder" id="aladinPlaceholder">
 <div><b>Aladin Lite</b>يُحمّل عند الطلب فقط، ويحتاج إلى اتصال بالإنترنت. تبقى القبة الأساسية وقاعدة النجوم تعملان دون اتصال.</div>
 </div>
@@ -1330,7 +1385,7 @@ body:has(#dashboard.active) main.wrap{max-width:none!important;padding:0!importa
 <section class="panel releaseSourcesPanel">
 <div class="releaseSectionHeader">
 <div><h2>المصادر والمنهجية</h2><p>تعمل قاعدة النجوم والقبة والبحث والتقارير محليًا. أما قواعد البيانات والمسوحات الرسمية فتُفتح عند الطلب وتحتاج إلى اتصال بالإنترنت.</p></div>
-<span class="releaseBadge">مراجعة الإصدار 2.6.4-r2</span>
+<span class="releaseBadge">مراجعة الإصدار 2.6.4-r16</span>
 </div>
 <div class="releaseSourceGroups">
 <section class="releaseSourceGroup">
@@ -1364,7 +1419,7 @@ body:has(#dashboard.active) main.wrap{max-width:none!important;padding:0!importa
 <section class="panel">
 <h2 style="color:var(--gold2)">حول برنامج نجوم العرب</h2>
 <div class="heroText" style="line-height:2">
-<p><b>نجوم العرب v2.6.4-r2 — نسخة الإهداء والتدقيق والبيانات المضمّنة</b> هو أطلس فلكي عربي تفاعلي يوثّق 204 نجوم تحمل أسماء عربية أو أسماء مشتقة من التراث واللغة العربية، ويربط كل سجل بمعرّف HIP وإحداثيات القبة الفلكية ومحرك البحث والتقارير.</p>
+<p><b>نجوم العرب v2.6.4-r16 — نسخة الإهداء والتدقيق والبيانات المضمّنة</b> هو أطلس فلكي عربي تفاعلي يوثّق 204 نجوم تحمل أسماء عربية أو أسماء مشتقة من التراث واللغة العربية، ويربط كل سجل بمعرّف HIP وإحداثيات القبة الفلكية ومحرك البحث والتقارير.</p>
 <p>يتيح البرنامج البحث بالعربية والإنجليزية، والانتقال المباشر من بطاقة النجم إلى القبة ومن القبة إلى البطاقة، وعرض موضع النجم بحسب موقع الراصد والتاريخ والوقت، مع الروابط العلمية إلى IAU وSIMBAD وVizieR وAladin.</p>
 <p><b>طبقة الكواكب الواقعية:</b> تعرض الشمس والقمر والكواكب السبعة المرئية في القبة بصور فلكية مرجعية حقيقية محفوظة محليًا، وفي مواضعها المحسوبة فلكيًا. ويوفر البرنامج وضعًا تعليميًا مكبرًا للتعرّف البصري، ووضعًا علميًا يعتمد القطر الزاوي التقريبي، مع بقاء الرموز المبسطة خيارًا ثالثًا.</p>
 <p><b>حدود الصورة:</b> الصورة المرجعية ليست بثًا تلسكوبيًا حيًا، ولا تمثل بالضرورة الطور اللحظي أو دوران الغلاف الجوي للكوكب؛ الدقة الفلكية تخص موضع الجرم وحجمه الزاوي في الوضع العلمي.</p>
@@ -1377,6 +1432,7 @@ body:has(#dashboard.active) main.wrap{max-width:none!important;padding:0!importa
 <li>الإحداثيات الكتالوجية وبيانات العرض مضمّنة داخل ملف البرنامج، بينما تحتاج الروابط الرسمية الخارجية إلى الإنترنت.</li>
 <li>اكتمال الربط الفلكي لا يعني اكتمال التحقق التاريخي واللغوي لأصل الاسم؛ تُدار هذه المراجعة في طبقة الأدلة.</li>
 <li>صور الأجرام مرجعية للعرض وليست بثًا حيًا، ويُوصى بـJPL Horizons للتوجيه الدقيق للأجرام المتحركة.</li>
+<li><b>إصلاح r15:</b> زر IAU/WGSN الخاص بالنجم يعرض الآن مرجعًا داخليًا واضحًا للنجم المختار، ولا ينتقل مباشرةً إلى صفحة المجموعة العامة المضللة بوصفها سجلًا فرديًا.</li>
 </ul>
 </div>
 <div class="validationCards" style="margin-top:16px">
@@ -1410,7 +1466,7 @@ body:has(#dashboard.active) main.wrap{max-width:none!important;padding:0!importa
 </section>
 <section aria-hidden="true" class="page" hidden="" id="audit"><section class="panel"><h2 style="color:var(--gold2)">تدقيق الأزرار والربط الداخلي</h2><p>الفحص هنا يبحث عن أي دالة غير موجودة في أزرار البرنامج، وعن أي صفحة ناقصة.</p><div class="stats"><div class="stat"><b id="auditTotal">—</b><span>عناصر مفحوصة</span></div><div class="stat"><b id="auditOk">—</b><span>سليم</span></div><div class="stat"><b id="auditWarn">—</b><span>ملاحظات</span></div><div class="stat"><b id="auditStatus">—</b><span>الحالة</span></div></div><div class="tabs"><button class="gold" onclick="runAudit()" type="button">تشغيل التدقيق</button><button onclick="exportAuditHTML()" type="button">تصدير تقرير التدقيق</button><button onclick="go('reports');generateProgramReport()" type="button">تقرير البرنامج</button></div><div class="tableWrap" style="margin-top:14px"><table><thead><tr><th>#</th><th>العنصر</th><th>النوع</th><th>الأمر</th><th>الحالة</th></tr></thead><tbody id="auditBody"></tbody></table></div></section></section>
 </main>
-<footer>نجوم العرب v2.6.4-r2 — نسخة الإهداء والتدقيق</footer>
+<footer>نجوم العرب v2.6.4-r16 — نسخة الإهداء والتدقيق</footer>
 <!-- SkyEngine embedded directly inside index.html to avoid missing local paths -->
 <script id="skyengine-data-embedded-v193">
 // Vigi-Sky SkyEngine data — sources : Yale BSC via d3-celestial (BSD), Hipparcos/Gaia
@@ -2768,10 +2824,36 @@ function stopTour(){ if(tourTimer)clearInterval(tourTimer); tourTimer=null; }
 
 function reportHeader(title){
   const value=id=>{const e=$(id);return e&&e.value!=null?String(e.value).trim():"";};
-  const lat=value("nightLat")||value("lat")||"—";
-  const lon=value("nightLon")||value("lon")||"—";
-  const when=value("nightDate")||value("dt")||new Date().toISOString();
-  return `<div class="releaseReportHeader"><h2>${htmlEscape(title)}</h2><p><b>نجوم العرب v2.6.4-r2</b></p><table><tr><th>تاريخ إنشاء التقرير</th><td>${new Date().toLocaleString("ar-IQ")}</td></tr><tr><th>وقت/تاريخ المحاكاة</th><td>${htmlEscape(when)}</td></tr><tr><th>موقع الراصد</th><td>خط العرض ${htmlEscape(lat)}° · خط الطول ${htmlEscape(lon)}°</td></tr></table><p class="releaseReportNote">ملاحظة منهجية: سلامة الربط التقني لا تعني تلقائيًا اكتمال المراجعة التاريخية واللغوية للاسم.</p></div>`;
+  const isEnglish=(document.documentElement.lang||"ar").toLowerCase().startsWith("en");
+  const locale=isEnglish?"en-GB":"ar-IQ";
+  const reportDateOptions={year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:!isEnglish};
+  const observationDateOptions={year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:!isEnglish};
+
+  // تعتمد ترويسة التقرير أولًا على القبة الأساسية، ثم القبة الاحتياطية، ثم مخطط الرصد الليلي.
+  const lat=value("skyEngLat")||value("lat")||value("nightLat")||"—";
+  const lon=value("skyEngLon")||value("lon")||value("nightLon")||"—";
+  const rawWhen=value("skyEngDate")||value("dt")||value("nightDate")||new Date().toISOString();
+
+  const formatDateTime=(raw,options)=>{
+    if(!raw)return "—";
+    const normalized=/^\d{4}-\d{2}-\d{2}$/.test(raw)?raw+"T00:00":raw;
+    const date=new Date(normalized);
+    return Number.isNaN(date.getTime())?raw:date.toLocaleString(locale,options);
+  };
+  const formatCoordinate=(raw,positiveAr,negativeAr,positiveEn,negativeEn)=>{
+    const n=Number(raw);
+    if(!Number.isFinite(n))return "—";
+    const direction=isEnglish?(n<0?negativeEn:positiveEn):(n<0?negativeAr:positiveAr);
+    return `${Math.abs(n).toFixed(2)}° ${direction}`;
+  };
+
+  const created=formatDateTime(new Date().toISOString(),reportDateOptions);
+  const observed=formatDateTime(rawWhen,observationDateOptions);
+  const latText=formatCoordinate(lat,"شمالًا","جنوبًا","N","S");
+  const lonText=formatCoordinate(lon,"شرقًا","غربًا","E","W");
+  const observer=isEnglish?`Latitude ${latText} · Longitude ${lonText}`:`خط العرض ${latText} · خط الطول ${lonText}`;
+
+  return `<div class="releaseReportHeader"><h2>${htmlEscape(title)}</h2><p class="releaseReportVersion"><b>نجوم العرب v2.6.4-r16</b></p><table class="reportMetaTable"><tbody><tr><th scope="row">${isEnglish?"Report date":"تاريخ التقرير"}</th><td>${htmlEscape(created)}</td></tr><tr><th scope="row">${isEnglish?"Simulation time":"وقت المحاكاة الفلكية"}</th><td>${htmlEscape(observed)}</td></tr><tr><th scope="row">${isEnglish?"Observer location":"موقع الراصد"}</th><td>${htmlEscape(observer)}</td></tr></tbody></table><p class="releaseReportNote">ملاحظة منهجية: سلامة الربط التقني لا تعني تلقائيًا اكتمال المراجعة التاريخية واللغوية للاسم.</p></div>`;
 }
 function generateProgramReport(){
   const linked=DATA.filter(r=>r.hipparcos_link_status==="linked").length, reviewed=DATA.filter(r=>r.review_decision&&r.review_decision!=="not_reviewed").length, pending=DATA.length-reviewed;
@@ -2844,7 +2926,7 @@ function init(){
 }
 
 Object.assign(window,{go,renderAtlas,renderCardList,renderEvidenceList,showStarByIndex,openEvidenceByIndex,draw,toggleLines,generateProgramReport,generateStarReport,generateVisibleReport,renderCinema,startTour,stopTour,nextTour,exportJSON,exportCSV,saveSession,loadSession,handleJSONFile,handleHipFile,saveEvidence,exportSelected,exportReportHTML,exportCinemaHTML,runAudit,exportAuditHTML,setNow,download,downloadBlob});
-window.__NAJOOM_EXPORT_DIAGNOSTICS={revision:"v2.6.4-r1",textBridge:true,binaryBridge:true,nativeDetected:hasNativeSaveBridge()};
+window.__NAJOOM_EXPORT_DIAGNOSTICS={revision:"v2.6.4-r16",textBridge:true,binaryBridge:true,nativeDetected:hasNativeSaveBridge()};
 window.addEventListener("DOMContentLoaded", init);
 </script>
 <script id="old-dome-backup-fix-v195">
@@ -3513,6 +3595,8 @@ window.addEventListener("DOMContentLoaded", init);
 
   let aladinInstance = null;
   let aladinLoadPromise = null;
+  let aladinResolvedPosition = null;
+  let aladinResolvedHip = null;
 
   const el = id => document.getElementById(id);
   const esc = value => String(value ?? "").replace(/[&<>"']/g, ch => ({
@@ -3557,12 +3641,33 @@ window.addEventListener("DOMContentLoaded", init);
     );
   }
 
+  function iauStarRecordUrl(record){
+    const r = record || currentRecord();
+    const name = String(r?.iau_name || r?.sky_name || "").trim();
+    if(!name) return "";
+    // WGSN's All Skies Encyclopaedia exposes one MediaWiki page per star name.
+    // The page title is the exact IAU name; spaces are represented as underscores.
+    const pageTitle = name.normalize("NFC").replace(/\s+/g,"_");
+    return "https://xing.fmi.uni-jena.de/mediawiki/index.php/" + encodeURIComponent(pageTitle);
+  }
+
   function sourceUrl(kind, record){
     const r = record || currentRecord();
-    if(kind === "iau") return GENERAL_SOURCES.iau;
-    if(kind === "aladin") return GENERAL_SOURCES.aladin;
-    if(!r) return "";
+    if(kind === "iau") return iauStarRecordUrl(r) || GENERAL_SOURCES.iau;
+    if(!r) return kind === "aladin" ? GENERAL_SOURCES.aladin : "";
     const hip = encodeURIComponent(String(r.hip || ""));
+    if(kind === "aladin"){
+      // HIP is the unambiguous cross-catalogue identity. Aladin/Sesame resolves
+      // it online to the catalogue position instead of using the rounded local
+      // display coordinates.
+      const target = `HIP ${String(r.hip || "").trim()}`;
+      const params = new URLSearchParams({
+        target,
+        fov: "1.5",
+        survey: "P/DSS2/color"
+      });
+      return GENERAL_SOURCES.aladin + "?" + params.toString();
+    }
     if(kind === "simbad"){
       return "https://simbad.cds.unistra.fr/simbad/sim-basic?Ident=HIP+" + hip + "&submit=SIMBAD+search";
     }
@@ -3574,10 +3679,138 @@ window.addEventListener("DOMContentLoaded", init);
 
   function openUrl(url){
     if(!url){ alert("لا يوجد رابط صالح للنجم المختار."); return false; }
-    const opened = window.open(url, "_blank", "noopener,noreferrer");
-    if(opened) opened.opener = null;
-    else alert("منع المتصفح فتح النافذة. اسمح بالنوافذ المنبثقة لهذا الملف.");
-    return !!opened;
+    // A real anchor click is less likely to be blocked for a local HTML file.
+    const link=document.createElement("a");
+    link.href=url;
+    link.target="_blank";
+    link.rel="noopener noreferrer";
+    link.style.display="none";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    return true;
+  }
+
+  function iauStatusLabel(value,isEnglish){
+    const labels={
+      pending:["قيد المراجعة","Pending review"],
+      probable_iau_wgsn_arabic_origin:["أصل عربي مرجح لدى IAU/WGSN","Probable Arabic origin in IAU/WGSN review"],
+      verified_iau_wgsn:["موثق لدى IAU/WGSN","Verified by IAU/WGSN"],
+      not_iau_official_arabic_name:["ليس اسمًا عربيًا رسميًا لدى IAU","Not an official Arabic IAU name"],
+      needs_iau_review:["يحتاج مراجعة IAU","IAU review required"],
+      ambiguous_iau_origin:["أصل IAU ملتبس","Ambiguous IAU origin"]
+    };
+    const pair=labels[String(value||"")]||[String(value||"غير محدد"),String(value||"Not specified")];
+    return pair[isEnglish?1:0];
+  }
+
+  function copyPlainText(text){
+    if(navigator.clipboard && window.isSecureContext){
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise((resolve,reject)=>{
+      try{
+        const area=document.createElement("textarea");
+        area.value=text;
+        area.setAttribute("readonly","");
+        area.style.position="fixed";
+        area.style.opacity="0";
+        document.body.appendChild(area);
+        area.select();
+        const ok=document.execCommand("copy");
+        area.remove();
+        ok?resolve():reject(new Error("copy_failed"));
+      }catch(error){ reject(error); }
+    });
+  }
+
+  function ensureIauReferenceOverlay(){
+    let overlay=el("iauReferenceOverlay");
+    if(overlay)return overlay;
+    overlay=document.createElement("div");
+    overlay.id="iauReferenceOverlay";
+    overlay.setAttribute("role","dialog");
+    overlay.setAttribute("aria-modal","true");
+    overlay.setAttribute("aria-labelledby","iauReferenceTitle");
+    overlay.style.cssText="position:fixed;inset:0;z-index:2147483000;display:none;place-items:center;padding:18px;background:rgba(2,8,22,.78);backdrop-filter:blur(9px);";
+    overlay.innerHTML=`<section style="width:min(760px,96vw);max-height:90vh;overflow:auto;border:1px solid rgba(238,190,92,.55);border-radius:24px;background:linear-gradient(145deg,#111a31,#0a1428 58%,#171526);box-shadow:0 28px 90px rgba(0,0,0,.58);padding:22px;color:#eef3ff;direction:rtl;text-align:right">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px">
+        <div><h2 id="iauReferenceTitle" style="margin:0;color:#ffe09a;font-size:1.45rem"></h2><p id="iauReferenceSubtitle" style="margin:5px 0 0;color:#aebbd5"></p></div>
+        <button id="iauReferenceClose" type="button" aria-label="إغلاق" style="min-width:42px;height:42px;border-radius:13px;border:1px solid #4a5873;background:#202a40;color:#fff;font-size:22px;cursor:pointer">×</button>
+      </div>
+      <div id="iauReferenceNotice" style="padding:13px 15px;border-radius:16px;border:1px solid rgba(238,190,92,.32);background:rgba(238,190,92,.09);line-height:1.85;color:#f2dfad;margin-bottom:15px"></div>
+      <div id="iauReferenceFields" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px"></div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px">
+        <button id="iauReferenceOpenGeneral" type="button" style="flex:1 1 220px;min-height:48px;border-radius:14px;border:1px solid #d1a94e;background:linear-gradient(135deg,#5b471f,#7a5c20);color:#fff2c4;font-weight:700;cursor:pointer"></button>
+        <button id="iauReferenceCopy" type="button" style="flex:1 1 180px;min-height:48px;border-radius:14px;border:1px solid #4d617e;background:#27344d;color:#eef4ff;font-weight:700;cursor:pointer"></button>
+        <button id="iauReferenceDismiss" type="button" style="flex:0 1 120px;min-height:48px;border-radius:14px;border:1px solid #45536c;background:#182238;color:#dce6f8;font-weight:700;cursor:pointer"></button>
+      </div>
+      <p id="iauReferenceFootnote" style="margin:14px 2px 0;color:#93a2bf;font-size:.92rem;line-height:1.7"></p>
+    </section>`;
+    document.body.appendChild(overlay);
+    const close=()=>{overlay.style.display="none";overlay.setAttribute("aria-hidden","true");};
+    overlay.addEventListener("click",event=>{if(event.target===overlay)close();});
+    el("iauReferenceClose").addEventListener("click",close);
+    el("iauReferenceDismiss").addEventListener("click",close);
+    document.addEventListener("keydown",event=>{if(event.key==="Escape"&&overlay.style.display!=="none")close();});
+    return overlay;
+  }
+
+  function showIauReference(record){
+    const r=record||currentRecord();
+    if(!r){alert("اختر نجمًا أولًا.");return false;}
+    const isEnglish=document.documentElement.lang==="en";
+    const overlay=ensureIauReferenceOverlay();
+    overlay.style.display="grid";
+    overlay.removeAttribute("aria-hidden");
+    const title=isEnglish?"IAU / WGSN reference for the selected star":"مرجع IAU / WGSN للنجم المختار";
+    const subtitle=`${r.arabic_name||"—"} — ${r.iau_name||r.sky_name||"—"} — HIP ${r.hip||"—"}`;
+    el("iauReferenceTitle").textContent=title;
+    el("iauReferenceSubtitle").textContent=subtitle;
+    const starRecordUrl=sourceUrl("iau",r);
+    el("iauReferenceNotice").textContent=isEnglish
+      ? "The external button now opens the selected star's own WGSN/All Skies Encyclopaedia record, generated from its exact IAU name, instead of opening the general working-group page."
+      : "يفتح الزر الخارجي الآن سجل النجم المختار نفسه في WGSN / All Skies Encyclopaedia اعتمادًا على اسم IAU الدقيق، بدل الانتقال إلى الصفحة العامة للمجموعة.";
+    const fields=[
+      [isEnglish?"IAU name":"اسم IAU",r.iau_name||r.sky_name||"—"],
+      ["HIP",r.hip||"—"],
+      [isEnglish?"Designation":"التعيين",r.designation||"—"],
+      [isEnglish?"Constellation":"الكوكبة",r.constellation||"—"],
+      [isEnglish?"IAU/WGSN review":"حالة IAU/WGSN",iauStatusLabel(r.iau_review_status,isEnglish)],
+      [isEnglish?"Local record":"السجل المحلي",r.record_id!=null?String(r.record_id):"—"]
+    ];
+    el("iauReferenceFields").innerHTML=fields.map(([label,value])=>`<div style="padding:12px 14px;border-radius:15px;background:rgba(104,124,158,.16);border:1px solid rgba(139,159,194,.22)"><span style="display:block;color:#9dadc8;font-size:.9rem;margin-bottom:3px">${esc(label)}</span><b style="display:block;color:#fff;overflow-wrap:anywhere">${esc(value)}</b></div>`).join("");
+    const openButton=el("iauReferenceOpenGeneral");
+    const copyButton=el("iauReferenceCopy");
+    const dismissButton=el("iauReferenceDismiss");
+    openButton.textContent=isEnglish?"Open this star's WGSN / ASE record":"فتح سجل WGSN / ASE الخاص بهذا النجم";
+    copyButton.textContent=isEnglish?"Copy star reference":"نسخ مرجع النجم";
+    dismissButton.textContent=isEnglish?"Close":"إغلاق";
+    el("iauReferenceFootnote").textContent=isEnglish
+      ? `Direct record: ${starRecordUrl}. If a name page is unavailable, SIMBAD and VizieR remain the authoritative direct identity links for HIP ${r.hip||"—"}.`
+      : `السجل المباشر: ${starRecordUrl}. وإذا لم تتوافر صفحة لاسم ما، يبقى رابطا SIMBAD وVizieR مرجعي الهوية المباشرين لسجل HIP ${r.hip||"—"}.`;
+    openButton.onclick=()=>openUrl(starRecordUrl);
+    copyButton.onclick=async()=>{
+      const reference=[
+        `Najoom Al-Arab v2.6.4-r16`,
+        `${r.arabic_name||""} | ${r.iau_name||r.sky_name||""} | HIP ${r.hip||""}`,
+        `${r.designation||""} | ${r.constellation||""}`,
+        `IAU/WGSN star record: ${starRecordUrl}`,
+        `IAU/WGSN working group: ${GENERAL_SOURCES.iau}`,
+        `${isEnglish?"Accessed":"تاريخ الوصول"}: ${new Date().toLocaleDateString(isEnglish?"en-GB":"ar-IQ")}`
+      ].filter(Boolean).join("\n");
+      try{
+        await copyPlainText(reference);
+        const previous=copyButton.textContent;
+        copyButton.textContent=isEnglish?"Copied":"تم النسخ";
+        setTimeout(()=>{copyButton.textContent=previous;},1300);
+      }catch(error){
+        console.error(error);
+        alert(isEnglish?"Could not copy the reference.":"تعذر نسخ المرجع.");
+      }
+    };
+    setTimeout(()=>el("iauReferenceClose")?.focus(),20);
+    return true;
   }
 
   function updateOnlineStatus(){
@@ -3607,6 +3840,131 @@ window.addEventListener("DOMContentLoaded", init);
       .filter(key => String(r[key] || "").trim()).length;
   }
 
+  function signed(value,digits=8){
+    const n=Number(value);
+    if(!Number.isFinite(n)) return "—";
+    return `${n>=0?"+":""}${n.toFixed(digits)}°`;
+  }
+
+  function raToHms(raDeg){
+    let total=((Number(raDeg)%360)+360)%360/15*3600;
+    let h=Math.floor(total/3600); total-=h*3600;
+    let m=Math.floor(total/60); let sec=total-m*60;
+    if(sec>=59.99995){sec=0;m+=1;} if(m>=60){m=0;h=(h+1)%24;}
+    return `${String(h).padStart(2,"0")}h ${String(m).padStart(2,"0")}m ${sec.toFixed(4).padStart(7,"0")}s`;
+  }
+
+  function decToDms(decDeg){
+    const n=Number(decDeg), sign=n<0?"−":"+";
+    let total=Math.abs(n)*3600;
+    let d=Math.floor(total/3600); total-=d*3600;
+    let m=Math.floor(total/60); let sec=total-m*60;
+    if(sec>=59.9995){sec=0;m+=1;} if(m>=60){m=0;d+=1;}
+    return `${sign}${String(d).padStart(2,"0")}° ${String(m).padStart(2,"0")}′ ${sec.toFixed(3).padStart(6,"0")}″`;
+  }
+
+  function angularOffsetArcsec(ra1,dec1,ra2,dec2){
+    const vals=[ra1,dec1,ra2,dec2].map(Number);
+    if(vals.some(v=>!Number.isFinite(v))) return NaN;
+    const [a1,d1,a2,d2]=vals.map(v=>v*Math.PI/180);
+    const cos=Math.sin(d1)*Math.sin(d2)+Math.cos(d1)*Math.cos(d2)*Math.cos(a1-a2);
+    return Math.acos(Math.max(-1,Math.min(1,cos)))*180/Math.PI*3600;
+  }
+
+  function resolvedText(pos){
+    if(!pos || !Number.isFinite(Number(pos.ra)) || !Number.isFinite(Number(pos.dec))) return "يظهر بعد تحميل المشهد";
+    return `RA ${Number(pos.ra).toFixed(8)}° · Dec ${signed(pos.dec,8)} | ${raToHms(pos.ra)} · ${decToDms(pos.dec)}`;
+  }
+
+  function updatePrecisionPanel(r,pos=null,state="waiting"){
+    if(!r) return;
+    const localRa=Number(r.ra_deg), localDec=Number(r.dec_deg);
+    const identity=el("aladinIdentityCheck");
+    const resolved=el("aladinResolvedCoords");
+    const local=el("aladinLocalCoords");
+    const offset=el("aladinCoordinateOffset");
+    if(identity){
+      identity.textContent=`HIP ${r.hip} — ${r.iau_name} — هوية الاستعلام الموحدة`;
+      identity.className=state==="resolved"?"ok":(state==="fallback"?"warn":"");
+    }
+    if(local){
+      local.textContent=Number.isFinite(localRa)&&Number.isFinite(localDec)
+        ? `RA ${localRa.toFixed(2)}° · Dec ${localDec>=0?"+":""}${localDec.toFixed(2)}° — قيمة محلية تقريبية`
+        : "غير متاح";
+    }
+    if(resolved){
+      resolved.textContent=state==="fallback"?"تعذر الحل عبر CDS؛ استُخدم الموضع المحلي التقريبي":resolvedText(pos);
+      resolved.className=state==="resolved"?"ok":(state==="fallback"?"warn":"");
+    }
+    if(offset){
+      const arcsec=pos?angularOffsetArcsec(localRa,localDec,pos.ra,pos.dec):NaN;
+      if(Number.isFinite(arcsec)){
+        offset.textContent=`${arcsec.toFixed(2)} ثانية قوسية — الفرق ناتج أساسًا من تقريب القاعدة المحلية`;
+        offset.className=arcsec<=1?"ok":(arcsec<=60?"warn":"bad");
+      }else{
+        offset.textContent="يُحسب بعد حل الهدف عبر CDS / Sesame";
+        offset.className="";
+      }
+    }
+  }
+
+  function updateAladinIdentity(r, loaded=false, resolvedPos=null, state="waiting"){
+    if(!r) return;
+    const arabic = String(r.arabic_name || "—");
+    const iau = String(r.iau_name || "—");
+    const hip = String(r.hip || "—");
+    const localCoords = r.ra_deg != null && r.dec_deg != null
+      ? `RA ${Number(r.ra_deg).toFixed(2)}° · Dec ${Number(r.dec_deg)>=0?"+":""}${Number(r.dec_deg).toFixed(2)}°`
+      : "RA/Dec غير متاحين";
+    const pos=resolvedPos && Number.isFinite(Number(resolvedPos.ra)) && Number.isFinite(Number(resolvedPos.dec)) ? resolvedPos : null;
+    const exactCoords=pos?`CDS RA ${Number(pos.ra).toFixed(8)}° · Dec ${signed(pos.dec,8)}`:localCoords;
+    const setText = (id,value) => { const node=el(id); if(node) node.textContent=value; };
+    setText("aladinTargetName", `${arabic} — ${iau}`);
+    setText("aladinTargetMeta", `HIP ${hip} · ${exactCoords} · ICRS`);
+    const summary=el("aladinTargetSummary");
+    if(summary){
+      summary.innerHTML=`<b>النجم المستهدف:</b> ${esc(arabic)} — <span class="ltr">${esc(iau)} · HIP ${esc(hip)}</span> · الاستعلام الخارجي بهوية HIP${loaded?" · المشهد محمّل":""}`;
+    }
+    const external=el("aladinExternalButton");
+    if(external){
+      external.textContent=`فتح HIP ${hip} (${iau}) في الموقع`;
+      external.title=`فتح ${arabic} — ${iau} — HIP ${hip} في موقع Aladin الرسمي`;
+      external.setAttribute("aria-label",external.title);
+      external.setAttribute("href",sourceUrl("aladin",r));
+    }
+    const panel=el("aladinLitePanel");
+    if(panel) panel.setAttribute("aria-label",`Aladin Lite: ${arabic} — ${iau} — HIP ${hip}`);
+    updatePrecisionPanel(r,pos,state);
+  }
+
+  function addAladinTargetLabel(A,r,pos=null){
+    if(!aladinInstance || !A || !r) return;
+    try{
+      if(typeof aladinInstance.removeLayers === "function") aladinInstance.removeLayers();
+      if(typeof A.catalog !== "function") return;
+      const ra=pos&&Number.isFinite(Number(pos.ra))?Number(pos.ra):Number(r.ra_deg);
+      const dec=pos&&Number.isFinite(Number(pos.dec))?Number(pos.dec):Number(r.dec_deg);
+      const label=`${r.arabic_name || "—"} · ${r.iau_name || "—"} · HIP ${r.hip || "—"}`;
+      const catalog=A.catalog({
+        name:"نجوم العرب — الهدف المحلول عبر CDS",
+        shape:"cross",
+        sourceSize:18,
+        color:"#ffd76a",
+        labelColumn:"name",
+        displayLabel:true,
+        labelColor:"#ffe8a6",
+        labelFont:"bold 14px sans-serif"
+      });
+      const source=(typeof A.marker==="function")
+        ? A.marker(ra,dec,{popupTitle:label,popupDesc:`CDS/Sesame<br>RA ${ra.toFixed(8)}°<br>Dec ${signed(dec,8)}`})
+        : A.source(ra,dec,{name:label});
+      catalog.addSources([source]);
+      aladinInstance.addCatalog(catalog);
+    }catch(error){
+      console.warn("Could not add Aladin target label",error);
+    }
+  }
+
   window.renderConnections = function(){
     updateOnlineStatus();
     populateSuggestions();
@@ -3614,13 +3972,16 @@ window.addEventListener("DOMContentLoaded", init);
     if(!r) return;
 
     const setText = (id,value) => { const node=el(id); if(node) node.textContent=value; };
+    const sameResolved=aladinResolvedHip===Number(r.hip)?aladinResolvedPosition:null;
     setText("connectionStarName", r.arabic_name || "—");
     setText("connectionStarBadge", `${r.iau_name || "—"} · HIP ${r.hip || "—"}`);
     setText("connectionIdentity", `${r.designation || "—"} · ${r.constellation || "—"}`);
     setText("connectionCoordinates",
-      r.ra_deg != null && r.dec_deg != null
-        ? `RA ${Number(r.ra_deg).toFixed(5)}° · Dec ${Number(r.dec_deg).toFixed(5)}°`
-        : "الإحداثيات غير متاحة"
+      sameResolved
+        ? `CDS: RA ${Number(sameResolved.ra).toFixed(8)}° · Dec ${signed(sameResolved.dec,8)}`
+        : (r.ra_deg != null && r.dec_deg != null
+          ? `محلي تقريبي: RA ${Number(r.ra_deg).toFixed(2)}° · Dec ${Number(r.dec_deg)>=0?"+":""}${Number(r.dec_deg).toFixed(2)}°`
+          : "الإحداثيات غير متاحة")
     );
     setText("connectionLinkState",
       `${r.hipparcos_link_status || "—"} · ${r.scientific_data_status || "—"}`
@@ -3633,6 +3994,7 @@ window.addEventListener("DOMContentLoaded", init);
     if(search && document.activeElement !== search){
       search.value = `${r.arabic_name} — ${r.iau_name} — HIP ${r.hip}`;
     }
+    updateAladinIdentity(r,!!aladinInstance,sameResolved,sameResolved?"resolved":"waiting");
     runDataIntegrity();
   };
 
@@ -3669,9 +4031,17 @@ window.addEventListener("DOMContentLoaded", init);
 
   window.openOfficialSource = function(kind){
     const r = currentRecord();
-    if((kind === "simbad" || kind === "vizier") && !r){
+    if((kind === "simbad" || kind === "vizier" || kind === "aladin") && !r){
       alert("اختر نجمًا أولًا.");
       return;
+    }
+    if(kind === "iau"){
+      showIauReference(r);
+      return;
+    }
+    if(kind === "aladin" && r){
+      const sameResolved=aladinResolvedHip===Number(r.hip)?aladinResolvedPosition:null;
+      updateAladinIdentity(r,!!aladinInstance,sameResolved,sameResolved?"resolved":"waiting");
     }
     openUrl(sourceUrl(kind,r));
   };
@@ -3687,9 +4057,12 @@ window.addEventListener("DOMContentLoaded", init);
   window.copySelectedCitation = async function(){
     const r = currentRecord();
     if(!r){ alert("اختر نجمًا أولًا."); return; }
-    const coords = r.ra_deg != null && r.dec_deg != null
-      ? `RA ${Number(r.ra_deg).toFixed(5)}°, Dec ${Number(r.dec_deg).toFixed(5)}° (J2000)`
-      : "RA/Dec غير متاحين";
+    const exact=aladinResolvedHip===Number(r.hip)?aladinResolvedPosition:null;
+    const coords = exact
+      ? `RA ${Number(exact.ra).toFixed(8)}°, Dec ${signed(exact.dec,8)} (CDS/Sesame, ICRS)`
+      : (r.ra_deg != null && r.dec_deg != null
+        ? `RA ${Number(r.ra_deg).toFixed(2)}°, Dec ${Number(r.dec_deg)>=0?"+":""}${Number(r.dec_deg).toFixed(2)}° (قاعدة محلية تقريبية)`
+        : "RA/Dec غير متاحين");
     const text = [
       `نجوم العرب v2.6.4 — ${r.arabic_name} (${r.iau_name})`,
       `HIP ${r.hip}; ${coords}; ${r.designation || ""}; ${r.constellation || ""}.`,
@@ -3811,6 +4184,24 @@ window.addEventListener("DOMContentLoaded", init);
     return aladinLoadPromise;
   }
 
+  function resolveWithSesame(r){
+    return new Promise((resolve,reject)=>{
+      if(!aladinInstance || typeof aladinInstance.gotoObject!=="function"){
+        reject(new Error("محرك حل الأسماء غير جاهز."));
+        return;
+      }
+      aladinInstance.gotoObject(`HIP ${r.hip}`,{
+        success:function(raDec){
+          const pair=Array.isArray(raDec)&&raDec.length>=2?raDec:(typeof aladinInstance.getRaDec==="function"?aladinInstance.getRaDec():null);
+          const ra=pair?Number(pair[0]):NaN, dec=pair?Number(pair[1]):NaN;
+          if(Number.isFinite(ra)&&Number.isFinite(dec)) resolve({ra,dec,source:"CDS/Sesame",hip:Number(r.hip)});
+          else reject(new Error("أعاد محلل CDS إحداثيات غير صالحة."));
+        },
+        error:function(){ reject(new Error(`تعذر حل HIP ${r.hip} عبر CDS / Sesame.`)); }
+      });
+    });
+  }
+
   window.loadAladinForSelected = async function(){
     const r=currentRecord();
     const status=el("aladinStatus");
@@ -3824,7 +4215,10 @@ window.addEventListener("DOMContentLoaded", init);
       alert("Aladin Lite يحتاج إلى الإنترنت، بينما القبة الأساسية تعمل دون اتصال.");
       return;
     }
-    if(status) status.textContent="الحالة: جاري تحميل Aladin Lite…";
+    if(status) status.textContent=`الحالة: يجري حل HIP ${r.hip} عبر CDS / Sesame بدقة عالية…`;
+    aladinResolvedPosition=null;
+    aladinResolvedHip=null;
+    updateAladinIdentity(r,false,null,"waiting");
     try{
       const A = await ensureAladinLibrary();
       if(A.init) await A.init;
@@ -3833,19 +4227,37 @@ window.addEventListener("DOMContentLoaded", init);
         aladinInstance=A.aladin("#aladinLitePanel",{
           survey:"P/DSS2/color",
           fov:1.5,
-          target:`${Number(r.ra_deg)} ${Number(r.dec_deg)}`,
+          target:`HIP ${r.hip}`,
+          cooFrame:"ICRS",
           showReticle:true,
           showCooGridControl:true,
-          showSimbadPointerControl:true
+          showSimbadPointerControl:true,
+          showShareControl:true,
+          showContextMenu:true
         });
-      }else{
-        aladinInstance.gotoRaDec(Number(r.ra_deg),Number(r.dec_deg));
-        aladinInstance.setFov(1.5);
       }
-      if(status) status.textContent=`الحالة: ${r.arabic_name} — ${r.iau_name} — HIP ${r.hip}`;
+      let pos;
+      try{
+        pos=await resolveWithSesame(r);
+        aladinResolvedPosition=pos;
+        aladinResolvedHip=Number(r.hip);
+        if(typeof aladinInstance.setFov==="function") aladinInstance.setFov(1.5);
+        addAladinTargetLabel(A,r,pos);
+        updateAladinIdentity(r,true,pos,"resolved");
+        const off=angularOffsetArcsec(Number(r.ra_deg),Number(r.dec_deg),pos.ra,pos.dec);
+        if(status) status.textContent=`الحالة: مطابق بالهوية HIP ${r.hip} — CDS/Sesame: RA ${pos.ra.toFixed(8)}° / Dec ${signed(pos.dec,8)}${Number.isFinite(off)?` — فرق المحلي ${off.toFixed(2)}″`:""}`;
+      }catch(resolveError){
+        pos={ra:Number(r.ra_deg),dec:Number(r.dec_deg),source:"local-fallback",hip:Number(r.hip)};
+        if(typeof aladinInstance.gotoRaDec==="function") aladinInstance.gotoRaDec(pos.ra,pos.dec);
+        if(typeof aladinInstance.setFov==="function") aladinInstance.setFov(1.5);
+        addAladinTargetLabel(A,r,pos);
+        updateAladinIdentity(r,true,null,"fallback");
+        if(status) status.textContent=`الحالة: تعذر الحل عبر CDS؛ يعرض الموضع المحلي التقريبي للنجم ${r.arabic_name} — HIP ${r.hip}.`;
+        console.warn(resolveError);
+      }
     }catch(error){
       if(placeholder) placeholder.style.display="grid";
-      if(status) status.textContent="الحالة: تعذر تحميل المرصد المتصل. استخدم زر فتح الموقع أو تحقق من الإنترنت.";
+      if(status) status.textContent="الحالة: تعذر تحميل المرصد المتصل. استخدم رابط HIP المباشر أو تحقق من الإنترنت.";
       alert(error.message || "تعذر تحميل Aladin Lite.");
     }
   };
@@ -3856,8 +4268,14 @@ window.addEventListener("DOMContentLoaded", init);
     if(panel) panel.replaceChildren();
     if(placeholder) placeholder.style.display="grid";
     aladinInstance=null;
+    aladinResolvedPosition=null;
+    aladinResolvedHip=null;
     const status=el("aladinStatus");
-    if(status) status.textContent="الحالة: تم إغلاق المرصد المتصل.";
+    const r=currentRecord();
+    if(r) updateAladinIdentity(r,false,null,"waiting");
+    if(status) status.textContent=r
+      ? `الحالة: تم إغلاق المشهد؛ النجم المحدد ما يزال ${r.arabic_name} — ${r.iau_name} — HIP ${r.hip}.`
+      : "الحالة: تم إغلاق المرصد المتصل.";
   };
 
   const oldGo=window.go;
@@ -6539,8 +6957,8 @@ window.openPlanetImageSources=function(){
     document.body?.classList.toggle("language-ar", lang === "ar");
     translateTree(document.body);
     document.title = lang === "en"
-      ? "Stars of the Arabs v2.6.4-r2 — Dedication and Audit Edition"
-      : "نجوم العرب v2.6.4-r2 — نسخة الإهداء والتدقيق";
+      ? "Stars of the Arabs v2.6.4-r16 — Dedication and Audit Edition"
+      : "نجوم العرب v2.6.4-r16 — نسخة الإهداء والتدقيق";
     updateToggle();
     if(persist){ try{ localStorage.setItem(STORAGE_KEY,lang); }catch(_e){} }
     document.dispatchEvent(new CustomEvent("najoom-language-change",{detail:{language:lang}}));
@@ -6671,7 +7089,7 @@ window.openPlanetImageSources=function(){
     const title=tx("تقرير حالة برنامج نجوم العرب","Stars of the Arabs — Program Status Report");
     const html=`<!doctype html><html lang="${language()}" dir="${language()==='en'?'ltr':'rtl'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><style>body{font-family:Arial,Tahoma,sans-serif;max-width:900px;margin:30px auto;padding:20px;color:#16243a}h1{color:#8c641e}table{width:100%;border-collapse:collapse}th,td{border:1px solid #bac5d3;padding:10px;text-align:start}small{color:#667}</style>
 <style id="najoom-r3-dedication-navigation-style">
-/* v2.6.4-r3 — standalone dedication and correct active navigation state */
+/* v2.6.4-r16 — standalone dedication and correct active navigation state */
 .head .tabs{flex:1 1 100%;justify-content:center;align-items:center}
 .dedicationStandaloneWrap{display:flex;align-items:center;justify-content:center;margin-inline-start:auto;flex:0 0 auto}
 .dedicationStandaloneBtn{position:relative;isolation:isolate;min-width:154px;min-height:50px;padding:10px 20px!important;border-radius:18px!important;border:1px solid rgba(255,205,106,.76)!important;background:linear-gradient(135deg,rgba(52,28,79,.95),rgba(10,38,65,.96) 48%,rgba(73,45,13,.94))!important;box-shadow:0 12px 34px rgba(0,0,0,.34),0 0 0 1px rgba(255,255,255,.04) inset,0 0 30px rgba(235,178,76,.12);overflow:hidden;display:inline-flex!important;align-items:center;justify-content:center;gap:9px;transform:none!important}
@@ -6710,8 +7128,8 @@ window.openPlanetImageSources=function(){
 }
 </style>
 
-</head><body><h1>${esc(title)}</h1><p><b>v2.6.4-r2</b> — ${esc(new Date().toLocaleString(language()==='en'?'en-GB':'ar-IQ'))}</p><table><tr><th>${tx('المؤشر','Indicator')}</th><th>${tx('القيمة','Value')}</th></tr><tr><td>${tx('إجمالي السجلات','Total records')}</td><td>${result.total}</td></tr><tr><td>${tx('HIP فريد','Unique HIP')}</td><td>${result.uniqueHip}</td></tr><tr><td>${tx('إحداثيات صالحة','Valid coordinates')}</td><td>${result.validCoordinates}/${result.total}</td></tr><tr><td>${tx('قرارات المراجعة','Review decisions')}</td><td>${result.reviewed}/${result.total}</td></tr><tr><td>${tx('حقول الأدلة','Evidence fields')}</td><td>${result.evidence}/${result.evidenceMax}</td></tr></table><p><small>${tx('السلامة التقنية لا تعني اكتمال التحقق التاريخي أو اللغوي.','Technical integrity does not imply completed historical or linguistic validation.')}</small></p></body></html>`;
-    try{if(typeof download==='function'){download('Najoom_AlArab_v2.6.4-r2_Status_Report.html',html,'text/html;charset=utf-8');return;}const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html;charset=utf-8'}));a.download='Najoom_AlArab_v2.6.4-r2_Status_Report.html';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);}catch(e){alert(tx('تعذر تصدير التقرير.','Could not export the report.'));console.error(e);}
+</head><body><h1>${esc(title)}</h1><p><b>v2.6.4-r16</b> — ${esc(new Date().toLocaleString(language()==='en'?'en-GB':'ar-IQ'))}</p><table><tr><th>${tx('المؤشر','Indicator')}</th><th>${tx('القيمة','Value')}</th></tr><tr><td>${tx('إجمالي السجلات','Total records')}</td><td>${result.total}</td></tr><tr><td>${tx('HIP فريد','Unique HIP')}</td><td>${result.uniqueHip}</td></tr><tr><td>${tx('إحداثيات صالحة','Valid coordinates')}</td><td>${result.validCoordinates}/${result.total}</td></tr><tr><td>${tx('قرارات المراجعة','Review decisions')}</td><td>${result.reviewed}/${result.total}</td></tr><tr><td>${tx('حقول الأدلة','Evidence fields')}</td><td>${result.evidence}/${result.evidenceMax}</td></tr></table><p><small>${tx('السلامة التقنية لا تعني اكتمال التحقق التاريخي أو اللغوي.','Technical integrity does not imply completed historical or linguistic validation.')}</small></p></body></html>`;
+    try{if(typeof download==='function'){download('Najoom_AlArab_v2.6.4-r16_Status_Report.html',html,'text/html;charset=utf-8');return;}const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html;charset=utf-8'}));a.download='Najoom_AlArab_v2.6.4-r16_Status_Report.html';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);}catch(e){alert(tx('تعذر تصدير التقرير.','Could not export the report.'));console.error(e);}
   };
   const observer=new MutationObserver(m=>{if(m.some(x=>x.type==='attributes'&&x.attributeName==='lang')&&q('programStatus')&&q('programStatus').classList.contains('active'))window.renderReleaseStatus();});
   observer.observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
@@ -6828,313 +7246,5 @@ window.openPlanetImageSources=function(){
 .r11Modules{position:relative;z-index:4;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:1040px;margin:0 auto}.r11Module{min-height:150px;border:1px solid rgba(216,166,63,.27);background:linear-gradient(145deg,rgba(7,22,43,.91),rgba(3,11,24,.94));border-radius:18px;padding:20px;display:grid;grid-template-columns:60px 1fr auto;gap:16px;align-items:center;cursor:pointer;transition:.22s;box-shadow:0 15px 38px rgba(0,0,0,.2)}.r11Module:hover{transform:translateY(-3px);border-color:rgba(236,187,82,.62);box-shadow:0 20px 45px rgba(0,0,0,.3)}.r11Module.primary{background:linear-gradient(145deg,rgba(88,57,12,.78),rgba(8,21,40,.94));border-color:rgba(232,183,75,.6)}.r11ModuleIcon{width:58px;height:58px;border:1px solid rgba(228,175,65,.55);border-radius:16px;display:grid;place-items:center;color:#ffd36f;font-size:27px;background:rgba(216,166,63,.07)}.r11Module small{color:#8fa4bb}.r11Module h2{color:#fff0c2;margin:3px 0 5px;font-size:1.35rem}.r11Module p{margin:0;color:#b8c5d6;line-height:1.7;font-size:.84rem}.r11Module>b{color:#e7b85a;font-size:.8rem;white-space:nowrap}.r11FooterPanel{position:relative;z-index:4;max-width:1040px;margin:18px auto 0;border:1px solid rgba(216,166,63,.22);background:rgba(2,9,20,.72);border-radius:16px;padding:15px 18px;display:grid;grid-template-columns:repeat(3,1fr) auto;align-items:center;gap:15px;backdrop-filter:blur(10px)}.r11FooterPanel div{border-left:1px solid rgba(255,255,255,.08);padding-left:14px}.r11FooterPanel div:last-of-type{border-left:0}.r11FooterPanel span,.r11FooterPanel strong{display:block}.r11FooterPanel span{color:#8598b0;font-size:.72rem}.r11FooterPanel strong{color:#f4f7fb;margin-top:4px;font-size:.9rem}
 @media(max-width:1000px){.r11Shell{grid-template-columns:82px 1fr}.r11Brand div,.r11Nav span,.r11Dedication span{display:none}.r11Brand,.r11Nav button,.r11Dedication{justify-content:center}.r11Modules{grid-template-columns:1fr}.r11Main{padding:38px 30px}.r11FooterPanel{grid-template-columns:1fr 1fr}.r11FooterPanel button{grid-column:1/-1}}
 @media(max-width:720px){.r11Shell{display:block;min-height:calc(100vh - 64px)}.r11Sidebar{position:absolute;inset:0 auto 0 0;width:250px;z-index:30;transform:translateX(-105%);transition:.3s;box-shadow:30px 0 70px rgba(0,0,0,.5)}.r11Sidebar.open{transform:none}.r11Brand div,.r11Nav span,.r11Dedication span{display:block}.r11Brand,.r11Nav button,.r11Dedication{justify-content:flex-start}.r11Menu{display:grid;place-items:center}.r11Main{min-height:calc(100vh - 64px);padding:72px 16px 28px}.r11Hero h1{font-size:3.5rem}.r11Hero p{font-size:.9rem}.r11HeroActions{flex-direction:column}.r11Modules{grid-template-columns:1fr}.r11Module{grid-template-columns:50px 1fr;min-height:130px;padding:16px}.r11Module>b{display:none}.r11FooterPanel{grid-template-columns:1fr}.r11FooterPanel div{border-left:0;border-bottom:1px solid rgba(255,255,255,.07);padding:0 0 9px}.r11FooterPanel div:last-of-type{border-bottom:0}}
-</style><script id="najoom-r11-dashboard-runtime">(()=>{"use strict";const menu=document.getElementById("r11Menu"),side=document.getElementById("r11Sidebar");menu?.addEventListener("click",()=>side?.classList.toggle("open"));document.querySelectorAll(".r11Module").forEach(el=>el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();el.click()}}));const oldGo=window.go;window.go=function(page){const result=oldGo&&oldGo.apply(this,arguments);document.querySelectorAll(".r11Nav button").forEach(b=>{const active=b.dataset.page===page;b.classList.toggle("active",active);if(active)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});side?.classList.remove("open");return result};})();</script>
-<script id="najoom-r12-github-pages-audit-runtime">
-(function(){
-  "use strict";
-
-  const RELEASE = "v2.6.4-r12";
-  const RELEASE_FILE = "v2_6_4_r12";
-  const RELEASE_AR = "نجوم العرب v2.6.4-r12 — نسخة GitHub Pages المدققة";
-  const RELEASE_EN = "Stars of the Arabs v2.6.4-r12 — Audited GitHub Pages Edition";
-  const $ = id => document.getElementById(id);
-  const records = () => {
-    try { return Array.isArray(DATA) ? DATA : (Array.isArray(START_DATA) ? START_DATA : []); }
-    catch (_) { return []; }
-  };
-  const lang = () => (document.documentElement.lang || "ar").toLowerCase().startsWith("en") ? "en" : "ar";
-  const tx = (ar,en) => lang() === "en" ? en : ar;
-  const esc = value => String(value ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
-  const attr = value => esc(value).replace(/`/g,"&#96;");
-
-  function currentRecord(){
-    try {
-      if(typeof window.najoomGetSelectedStar === "function"){
-        const r = window.najoomGetSelectedStar();
-        if(r) return r;
-      }
-      if(typeof selected !== "undefined" && selected) return selected;
-    } catch (_) {}
-    return records()[0] || null;
-  }
-
-  function sourceUrls(record){
-    const r = record || currentRecord();
-    const hip = r && Number.isFinite(Number(r.hip)) ? String(Number(r.hip)) : "";
-    const target = r && Number.isFinite(Number(r.ra_deg)) && Number.isFinite(Number(r.dec_deg))
-      ? `${Number(r.ra_deg).toFixed(6)} ${Number(r.dec_deg).toFixed(6)}`
-      : (hip ? `HIP ${hip}` : "");
-    return {
-      iau: "https://www.iau.org/WG280/WG280/Home.aspx",
-      simbad: hip ? `https://simbad.cds.unistra.fr/simbad/sim-basic?Ident=HIP+${encodeURIComponent(hip)}&submit=SIMBAD+search` : "",
-      vizier: hip ? `https://vizier.cds.unistra.fr/viz-bin/VizieR?-source=I%2F239%2Fhip_main&HIP=${encodeURIComponent(hip)}` : "",
-      aladin: target ? `https://aladin.cds.unistra.fr/AladinLite/?target=${encodeURIComponent(target)}` : ""
-    };
-  }
-
-  function safeExternalOpen(url){
-    if(!url){ alert(tx("لا يوجد رابط صالح للنجم المختار.","No valid link is available for the selected star.")); return false; }
-    try {
-      const a = document.createElement("a");
-      a.href = url;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      a.referrerPolicy = "no-referrer";
-      a.style.display = "none";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      return true;
-    } catch (error) {
-      console.error("External link open failed", error);
-      alert(tx("تعذر فتح الرابط الخارجي.","Could not open the external link."));
-      return false;
-    }
-  }
-
-  function link(url,label){
-    return url ? `<a href="${attr(url)}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">${esc(label)}</a>` : "—";
-  }
-
-  function linkifyEvidence(value){
-    const text = String(value || "").trim();
-    if(!text) return "—";
-    const parts = text.split(/(https?:\/\/[^\s|<>]+)/g);
-    return parts.map(part => /^https?:\/\//i.test(part)
-      ? `<a href="${attr(part)}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">${esc(part)}</a>`
-      : esc(part)
-    ).join("").replace(/\s*\|\s*/g,"<br>");
-  }
-
-  function reportHeaderR12(title){
-    const value = id => { const e=$(id); return e && e.value != null ? String(e.value).trim() : ""; };
-    const lat = value("nightLat") || value("lat") || "—";
-    const lon = value("nightLon") || value("lon") || "—";
-    const when = value("nightDate") || value("dt") || new Date().toISOString();
-    return `<div class="releaseReportHeader"><h2>${esc(title)}</h2><p><b>${RELEASE}</b></p><table><tr><th>${tx("تاريخ إنشاء التقرير","Report generated")}</th><td>${esc(new Date().toLocaleString(lang()==="en"?"en-GB":"ar-IQ"))}</td></tr><tr><th>${tx("وقت/تاريخ المحاكاة","Simulation date/time")}</th><td>${esc(when)}</td></tr><tr><th>${tx("موقع الراصد","Observer location")}</th><td>${tx("خط العرض","Latitude")} ${esc(lat)}° · ${tx("خط الطول","Longitude")} ${esc(lon)}°</td></tr></table><p class="releaseReportNote">${tx("ملاحظة منهجية: سلامة الربط التقني لا تعني تلقائيًا اكتمال المراجعة التاريخية واللغوية للاسم.","Methodological note: technical linkage does not automatically imply completed historical and linguistic review of the name.")}</p></div>`;
-  }
-
-  function setReport(html){
-    try { lastReportHTML = html; } catch (_) { window.__NAJOOM_LAST_REPORT_HTML = html; }
-    const box=$("reportBox"); if(box) box.innerHTML=html;
-    return html;
-  }
-
-  function selectedReportR12(){
-    const r=currentRecord();
-    if(!r){ return setReport(`<h2>${tx("لا يوجد نجم مختار","No star selected")}</h2><p>${tx("اختر نجمًا أولًا من الأطلس أو بطاقة النجم.","Select a star from the atlas or star card first.")}</p>`); }
-    const u=sourceUrls(r);
-    const coords = Number.isFinite(Number(r.ra_deg)) && Number.isFinite(Number(r.dec_deg))
-      ? `${Number(r.ra_deg).toFixed(5)}° / ${Number(r.dec_deg).toFixed(5)}°`
-      : tx("غير متاح","Unavailable");
-    const html = reportHeaderR12(`${tx("تقرير النجم","Star Report")}: ${r.arabic_name}`) + `
-      <table>
-        <tr><th>${tx("الحقل","Field")}</th><th>${tx("القيمة","Value")}</th></tr>
-        <tr><td>${tx("الاسم العربي","Arabic name")}</td><td><b>${esc(r.arabic_name)}</b></td></tr>
-        <tr><td>IAU</td><td dir="ltr">${esc(r.iau_name)}</td></tr>
-        <tr><td>HIP</td><td>HIP ${esc(r.hip)}</td></tr>
-        <tr><td>Designation</td><td dir="ltr">${esc(r.designation || "—")}</td></tr>
-        <tr><td>Constellation</td><td dir="ltr">${esc(r.constellation || "—")}</td></tr>
-        <tr><td>${tx("المعنى","Meaning")}</td><td>${esc(r.meaning_ar || "—")}</td></tr>
-        <tr><td>RA / Dec (J2000)</td><td dir="ltr">${esc(coords)}</td></tr>
-        <tr><td>Vmag / B−V</td><td dir="ltr">${Number.isFinite(Number(r.vmag))?Number(r.vmag).toFixed(2):"—"} / ${Number.isFinite(Number(r.bv))?Number(r.bv).toFixed(2):"—"}</td></tr>
-        <tr><td>${tx("حالة الربط بالقبة","Dome linkage")}</td><td>${esc(r.dome_link_status || "—")} · ${esc(r.dome_link_key || "—")}</td></tr>
-        <tr><td>${tx("التحقق","Verification")}</td><td>IAU: ${esc(r.iau_review_status || "—")}<br>SIMBAD: ${esc(r.simbad_review_status || "—")}<br>${tx("التراث","Heritage")}: ${esc(r.heritage_review_status || "—")}</td></tr>
-        <tr><td>${tx("المواقع العلمية","Scientific websites")}</td><td class="officialLinks">${link(u.simbad,"SIMBAD — HIP "+r.hip)}<br>${link(u.vizier,"VizieR / Hipparcos — HIP "+r.hip)}<br>${link(u.iau,"IAU/WGSN")}<br>${link(u.aladin,"Aladin Lite — "+r.iau_name)}</td></tr>
-        <tr><td>${tx("أدلة IAU/WGSN","IAU/WGSN evidence")}</td><td>${linkifyEvidence(r.evidence_iau_wgsn)}</td></tr>
-        <tr><td>${tx("أدلة SIMBAD","SIMBAD evidence")}</td><td>${linkifyEvidence(r.evidence_simbad)}</td></tr>
-        <tr><td>${tx("أدلة Hipparcos","Hipparcos evidence")}</td><td>${linkifyEvidence(r.evidence_hipparcos)}</td></tr>
-        <tr><td>${tx("الأدلة التراثية","Heritage evidence")}</td><td>${linkifyEvidence(r.evidence_arabic_heritage)}</td></tr>
-      </table>`;
-    return setReport(html);
-  }
-
-  function connectionsReportR12(){
-    const data=records();
-    const r=currentRecord();
-    const u=sourceUrls(r);
-    const linked=data.filter(x=>Number.isFinite(Number(x.hip)) && Number.isFinite(Number(x.ra_deg)) && Number.isFinite(Number(x.dec_deg))).length;
-    const urls=data.reduce((n,x)=>{const s=sourceUrls(x);return n + (s.simbad?1:0)+(s.vizier?1:0)+(s.aladin?1:0);},0);
-    const html=reportHeaderR12(tx("تقرير الارتباطات العلمية","Scientific Linkage Report"))+`
-      <table><tr><th>${tx("المؤشر","Indicator")}</th><th>${tx("القيمة","Value")}</th></tr>
-      <tr><td>${tx("السجلات","Records")}</td><td>${data.length}</td></tr>
-      <tr><td>${tx("نجوم مرتبطة بالقبة","Dome-linked stars")}</td><td>${linked}/${data.length}</td></tr>
-      <tr><td>${tx("روابط نجمية مولدة","Generated star-specific links")}</td><td>${urls}/${data.length*3}</td></tr>
-      <tr><td>${tx("المصادر","Sources")}</td><td>SIMBAD · VizieR/Hipparcos · IAU/WGSN · Aladin Lite</td></tr></table>
-      ${r?`<h3>${tx("النجم المختار","Selected star")}</h3><table><tr><th>${tx("النجم","Star")}</th><td>${esc(r.arabic_name)} — ${esc(r.iau_name)} — HIP ${esc(r.hip)}</td></tr><tr><th>${tx("الروابط","Links")}</th><td>${link(u.simbad,"SIMBAD")} · ${link(u.vizier,"VizieR")} · ${link(u.iau,"IAU/WGSN")} · ${link(u.aladin,"Aladin Lite")}</td></tr></table>`:""}`;
-    if(typeof window.go==="function") window.go("reports");
-    return setReport(html);
-  }
-
-  function programReportR12(){
-    const data=records();
-    const linked=data.filter(r=>r.hipparcos_link_status==="linked").length;
-    const reviewed=data.filter(r=>r.review_decision&&r.review_decision!=="not_reviewed").length;
-    const edges=(typeof EDGES!=="undefined"&&Array.isArray(EDGES))?EDGES.length:0;
-    const sourceLinks=data.filter(r=>{const u=sourceUrls(r);return u.simbad&&u.vizier&&u.aladin;}).length;
-    return setReport(reportHeaderR12(tx("تقرير حالة برنامج نجوم العرب","Stars of the Arabs Program Report"))+`<table><tr><th>${tx("المؤشر","Indicator")}</th><th>${tx("القيمة","Value")}</th></tr><tr><td>${tx("إجمالي السجلات","Total records")}</td><td>${data.length}</td></tr><tr><td>${tx("المربوط Hipparcos","Hipparcos linked")}</td><td>${linked}/${data.length}</td></tr><tr><td>${tx("الربط بالمواقع العلمية","Scientific website linkage")}</td><td>${sourceLinks}/${data.length}</td></tr><tr><td>${tx("قرارات المراجعة المكتملة","Completed review decisions")}</td><td>${reviewed}/${data.length}</td></tr><tr><td>${tx("خطوط المجموعات","Constellation edges")}</td><td>${edges}</td></tr></table>`);
-  }
-
-  function exportReportR12(){
-    let inner="";
-    try { inner=lastReportHTML; } catch (_) { inner=window.__NAJOOM_LAST_REPORT_HTML||""; }
-    inner=inner||$("reportBox")?.innerHTML||"";
-    const fontCss=(typeof JANNA_EXPORT_FONT_CSS!=="undefined"?JANNA_EXPORT_FONT_CSS:"");
-    const html='<!doctype html><html lang="'+lang()+'" dir="'+(lang()==="en"?"ltr":"rtl")+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(tx("تقرير نجوم العرب","Stars of the Arabs Report"))+'</title><style>'+fontCss+'body{font-family:JannaApp,Tahoma,Arial;line-height:1.8;padding:22px;color:#152238}table{width:100%;border-collapse:collapse}td,th{border:1px solid #c7ced8;padding:8px;text-align:start;vertical-align:top}th{background:#eef1f5}h1,h2,h3{color:#7a5100}a{color:#075fa8;overflow-wrap:anywhere}</style></head><body>'+inner+'</body></html>';
-    return typeof download==="function" ? download(html,`Najoom_AlArab_${RELEASE_FILE}_Report.html`,"text/html;charset=utf-8") : false;
-  }
-
-  function embeddedAuditR12(){
-    const src=records();
-    const hips=new Set(src.map(r=>Number(r.hip)).filter(Number.isFinite));
-    const names=new Set(src.map(r=>String(r.iau_name||"").trim()).filter(Boolean));
-    const sky=(window.SKY&&Array.isArray(window.SKY.stars))?window.SKY.stars.length:0;
-    const edges=(typeof EDGES!=="undefined"&&Array.isArray(EDGES))?EDGES.length:
-      ((typeof OFFICIAL_CONNECTIONS!=="undefined"&&Array.isArray(OFFICIAL_CONNECTIONS))?OFFICIAL_CONNECTIONS.length:
-      ((typeof CONNECTIONS!=="undefined"&&Array.isArray(CONNECTIONS))?CONNECTIONS.length:0));
-    const links=src.filter(r=>{const u=sourceUrls(r);return u.simbad&&u.vizier&&u.aladin;}).length;
-    const ok=src.length===204&&hips.size===204&&names.size===204&&sky>0&&links===src.length;
-    const mt=$("mTotal"),ml=$("mLinked"),me=$("mEdges"),st=$("managerStatus");
-    if(mt)mt.textContent=src.length;
-    if(ml)ml.textContent=`${hips.size}/${src.length}`;
-    if(me)me.textContent=String(edges);
-    if(st)st.innerHTML=`${ok?"✅":"⚠️"} ${tx("قاعدة النجوم","Star database")}: <b>${src.length}/204</b> · HIP: <b>${hips.size}</b> · ${tx("روابط المواقع","website links")}: <b>${links}/${src.length}</b> · ${tx("خطوط المجموعات","edges")}: <b>${edges}</b> · ${tx("الحالة","status")}: <b>${ok?"PASS":"REVIEW"}</b>`;
-    return {release:RELEASE,passed:ok,records:src.length,uniqueHip:hips.size,uniqueNames:names.size,skyStars:sky,edges,starWebsiteLinks:links};
-  }
-
-  function githubAudit(){
-    const data=records();
-    const pages=[...document.querySelectorAll(".page")];
-    const ids=new Set([...document.querySelectorAll("[id]")].map(e=>e.id));
-    const duplicateIds=[...document.querySelectorAll("[id]")].map(e=>e.id).filter((id,i,a)=>a.indexOf(id)!==i);
-    const routeButtons=[...document.querySelectorAll("[onclick*='go(']")];
-    const missingRoutes=[];
-    for(const b of routeButtons){
-      const m=(b.getAttribute("onclick")||"").match(/go\(['\"]([^'\"]+)/);
-      if(m && !ids.has(m[1]) && m[1]!=="skyPage") missingRoutes.push(m[1]);
-    }
-    const sourceFailures=[];
-    const reportFailures=[];
-    const selectionFailures=[];
-    for(let i=0;i<data.length;i++){
-      const r=data[i],u=sourceUrls(r);
-      if(!u.simbad.includes(String(r.hip))||!u.vizier.includes(String(r.hip))||!u.aladin) sourceFailures.push(r.hip);
-      try{
-        if(typeof window.showStarByIndex==="function") window.showStarByIndex(i);
-        const c=currentRecord();
-        if(Number(c?.hip)!==Number(r.hip)) selectionFailures.push(r.hip);
-        selectedReportR12();
-        const report=$("reportBox")?.innerText||"";
-        if(!report.includes(String(r.hip))||!report.includes(r.iau_name)||!report.includes(r.arabic_name)) reportFailures.push(r.hip);
-      }catch(_){ reportFailures.push(r.hip); }
-    }
-    const transition=typeof window.runFullTransitionAudit==="function"?window.runFullTransitionAudit():null;
-    const result={release:RELEASE,records:data.length,pages:pages.length,duplicateIds,missingRoutes,sourceFailures,selectionFailures,reportFailures,transition,passed:data.length===204&&duplicateIds.length===0&&missingRoutes.length===0&&sourceFailures.length===0&&selectionFailures.length===0&&reportFailures.length===0&&(!transition||transition.passed)};
-    document.documentElement.dataset.githubPagesAudit=result.passed?"pass":"fail";
-    return result;
-  }
-
-  function syncPageState(targetId){
-    const canonical=targetId==="skyPage"?"skyEnginePage":targetId;
-    document.querySelectorAll(".page").forEach(page=>{
-      const active=page.id===canonical && page.classList.contains("active");
-      page.hidden=!active;
-      page.setAttribute("aria-hidden",active?"false":"true");
-      if(active) page.removeAttribute("inert"); else page.setAttribute("inert","");
-    });
-    const active=$(canonical);
-    if(active){ active.hidden=false; active.setAttribute("aria-hidden","false"); active.removeAttribute("inert"); }
-    return canonical;
-  }
-
-  function syncReleaseUi(){
-    document.title=lang()==="en"?RELEASE_EN:RELEASE_AR;
-    let meta=document.querySelector('meta[name="application-version"]');
-    if(!meta){meta=document.createElement("meta");meta.name="application-version";document.head.appendChild(meta);}
-    meta.content=RELEASE.replace(/^v/,"");
-    const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
-    let n;
-    while((n=walker.nextNode())){
-      if(!n.nodeValue)continue;
-      n.nodeValue=n.nodeValue.replace(/v2\.6\.4-r(?:1|2|3|4|11)\b/g,RELEASE);
-    }
-    try { if(typeof MANIFEST!=="undefined" && MANIFEST) MANIFEST.version=`${RELEASE} GitHub Pages Audited Edition`; } catch (_) {}
-    document.documentElement.dataset.release=RELEASE;
-  }
-
-  const priorGo=window.go;
-  window.go=function(pageId){
-    const canonical=pageId==="skyPage"?"skyEnginePage":pageId;
-    const result=typeof priorGo==="function"?priorGo.call(this,canonical):undefined;
-    syncPageState(canonical);
-    setTimeout(()=>syncPageState(canonical),0);
-    return result;
-  };
-
-  window.getNajoomStarSourceUrls=sourceUrls;
-  window.getOfficialSourceUrl=kind=>sourceUrls(currentRecord())[kind]||"";
-  window.openOfficialSource=kind=>safeExternalOpen(sourceUrls(currentRecord())[kind]||"");
-  const general={iau:"https://www.iau.org/WG280/WG280/Home.aspx",simbad:"https://simbad.cds.unistra.fr/simbad/sim-fbasic",vizier:"https://cdsarc.cds.unistra.fr/viz-bin/cat/I/239",aladin:"https://aladin.cds.unistra.fr/AladinLite/"};
-  window.openGeneralSource=kind=>safeExternalOpen(general[kind]||"");
-  window.generateStarReport=selectedReportR12;
-  window.generateConnectionsReport=connectionsReportR12;
-  window.generateProgramReport=programReportR12;
-  window.exportReportHTML=exportReportR12;
-  window.runEmbeddedDataAudit=embeddedAuditR12;
-  window.runGitHubPagesAudit=githubAudit;
-
-  const priorReleaseExport=window.exportReleaseStatusHTML;
-  window.exportReleaseStatusHTML=function(){
-    if(typeof window.renderReleaseStatus==="function") window.renderReleaseStatus();
-    const html=reportHeaderR12(tx("تقرير حالة برنامج نجوم العرب","Stars of the Arabs Program Status"))+($("releaseStatusGrid")?.outerHTML||"")+($("releaseHealthTable")?.outerHTML||"");
-    const doc='<!doctype html><html lang="'+lang()+'" dir="'+(lang()==="en"?"ltr":"rtl")+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(tx("تقرير حالة نجوم العرب","Stars of the Arabs Status Report"))+'</title><style>body{font-family:Arial,Tahoma,sans-serif;max-width:1000px;margin:30px auto;padding:20px}table{width:100%;border-collapse:collapse}th,td{border:1px solid #bbb;padding:9px;text-align:start}</style></head><body>'+html+'</body></html>';
-    if(typeof download==="function") return download(doc,`Najoom_AlArab_${RELEASE_FILE}_Status_Report.html`,"text/html;charset=utf-8");
-    return typeof priorReleaseExport==="function"?priorReleaseExport():false;
-  };
-
-  if(window.NajoomI18n){
-    const oldApply=window.NajoomI18n.apply?.bind(window.NajoomI18n);
-    const oldCurrent=window.NajoomI18n.current?.bind(window.NajoomI18n);
-    const apply=function(next,persist=true){
-      const result=oldApply?oldApply(next,persist):(next==="en"?"en":"ar");
-      syncReleaseUi();
-      return result;
-    };
-    const toggle=function(){return apply((oldCurrent?oldCurrent():lang())==="ar"?"en":"ar",true);};
-    window.NajoomI18n.apply=apply;
-    window.NajoomI18n.toggle=toggle;
-    window.najoomSetLanguage=apply;
-    window.najoomToggleLanguage=toggle;
-  }
-  const langButton=$("languageToggle");
-  if(langButton) langButton.setAttribute("onclick","najoomToggleLanguage()");
-
-  function boot(){
-    syncReleaseUi();
-    const active=document.querySelector(".page.active");
-    syncPageState(active?.id||"dashboard");
-    const pageRoot=document.querySelector("main")||document.body;
-    if(pageRoot && !window.__NAJOOM_R12_PAGE_OBSERVER){
-      let queued=false;
-      const observer=new MutationObserver(mutations=>{
-        if(!mutations.some(m=>m.type==="attributes"&&m.attributeName==="class"&&m.target.classList?.contains("page"))) return;
-        if(queued) return;
-        queued=true;
-        queueMicrotask(()=>{
-          queued=false;
-          const current=document.querySelector(".page.active");
-          if(current) syncPageState(current.id);
-        });
-      });
-      observer.observe(pageRoot,{subtree:true,attributes:true,attributeFilter:["class"]});
-      window.__NAJOOM_R12_PAGE_OBSERVER=observer;
-    }
-    embeddedAuditR12();
-    document.documentElement.dataset.githubPagesReady="true";
-  }
-  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",boot,{once:true}); else boot();
-})();
-
-</script>
-</body>
+</style><script id="najoom-r11-dashboard-runtime">(()=>{"use strict";const menu=document.getElementById("r11Menu"),side=document.getElementById("r11Sidebar");menu?.addEventListener("click",()=>side?.classList.toggle("open"));document.querySelectorAll(".r11Module").forEach(el=>el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();el.click()}}));const oldGo=window.go;window.go=function(page){const result=oldGo&&oldGo.apply(this,arguments);document.querySelectorAll(".r11Nav button").forEach(b=>{const active=b.dataset.page===page;b.classList.toggle("active",active);if(active)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});side?.classList.remove("open");return result};})();</script></body>
 </html>
