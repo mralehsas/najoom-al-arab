@@ -1,0 +1,24 @@
+{
+  "release": "v2.6.4-r16",
+  "packageDate": "2026-08-01",
+  "githubPagesReady": true,
+  "entryFile": "index.html",
+  "selfContainedHtml": true,
+  "externalAssetReferences": [],
+  "records": 204,
+  "embeddedManifestEdges": 21,
+  "htmlLines": 7251,
+  "htmlBytes": 7276592,
+  "htmlIds": 297,
+  "uniqueHtmlIds": 297,
+  "duplicateHtmlIds": 0,
+  "inlineScripts": 30,
+  "javascriptSyntaxErrors": 0,
+  "eventHandlers": 165,
+  "missingEventHandlerBindings": [],
+  "sha256": "602acbd2e6377159e7f498480f3d3a62ff3eb44720aa68375364489d61012968",
+  "notes": [
+    "JavaScript syntax checked with Node.js v22.16.0.",
+    "All fonts, images and core star data are embedded in index.html."
+  ]
+}
