@@ -21,22 +21,27 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           fetch-depth: 0
 
-      - name: Export suspect patch parts
-        uses: actions/upload-artifact@v4
-        with:
-          name: suspect-patch-parts
-          path: |
-            .github/patches/v2.6.4-r16.part01
-            .github/patches/v2.6.4-r16.part04
-          compression-level: 0
-          if-no-files-found: error
+      - name: Correct two transport characters
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          corrections = {
+              Path('.github/patches/v2.6.4-r16.part01'): (1063, '7', '9'),
+              Path('.github/patches/v2.6.4-r16.part04'): (4283, 'l', 'p'),
+          }
+          for path, (position, transported, original) in corrections.items():
+              value = path.read_text(encoding='utf-8')
+              assert len(value) in (6000, 3772)
+              assert value[position] == transported, (path, position, value[position])
+              path.write_text(value[:position] + original + value[position + 1:], encoding='utf-8')
+          PY
 
       - name: Reassemble and verify exact patch
         shell: bash
         run: |
           set -euo pipefail
-          sha256sum .github/patches/v2.6.4-r16.part0{1..5}
-          wc -c .github/patches/v2.6.4-r16.part0{1..5}
           cat > /tmp/expected-parts.sha256 <<'EOF'
           7d51fd85dd826f1596321b58c3a31f78a75e12fe92f152d2aa7c3a4e6d9d6295  .github/patches/v2.6.4-r16.part01
           b2de2301f17093a41a1203fe15e2501c8ed890fec49ff7fa6322c54cb64dd31b  .github/patches/v2.6.4-r16.part02
@@ -64,6 +69,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          git restore .github/patches/v2.6.4-r16.part01 .github/patches/v2.6.4-r16.part04
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
