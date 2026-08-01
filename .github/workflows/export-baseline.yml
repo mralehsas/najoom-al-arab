@@ -21,6 +21,16 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           fetch-depth: 0
 
+      - name: Export suspect patch parts
+        uses: actions/upload-artifact@v4
+        with:
+          name: suspect-patch-parts
+          path: |
+            .github/patches/v2.6.4-r16.part01
+            .github/patches/v2.6.4-r16.part04
+          compression-level: 0
+          if-no-files-found: error
+
       - name: Reassemble and verify exact patch
         shell: bash
         run: |
