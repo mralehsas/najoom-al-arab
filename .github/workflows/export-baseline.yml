@@ -1,0 +1,22 @@
+name: Export baseline index
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Upload current index
+        uses: actions/upload-artifact@v4
+        with:
+          name: baseline-index
+          path: index.html
+          compression-level: 0
+          if-no-files-found: error
