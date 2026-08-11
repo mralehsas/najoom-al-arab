@@ -1,0 +1,5 @@
+sha256=4904e7958998eb49453b570d28cd6407b0d8f1b77b2cab8387313f7159f29fb1
+bytes=7279617
+lines=7284
+version=2.6.5-r17
+rigel_check=PASS
