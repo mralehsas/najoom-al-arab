@@ -1,24 +1,35 @@
 {
-  "release": "v2.6.4-r16",
-  "packageDate": "2026-08-01",
+  "release": "v2.6.5-r17",
+  "packageDate": "2026-08-11",
   "githubPagesReady": true,
   "entryFile": "index.html",
   "selfContainedHtml": true,
-  "externalAssetReferences": [],
   "records": 204,
-  "embeddedManifestEdges": 21,
-  "htmlLines": 7251,
-  "htmlBytes": 7276592,
+  "htmlLinesSplitlines": 7284,
+  "htmlBytes": 7279617,
   "htmlIds": 297,
   "uniqueHtmlIds": 297,
   "duplicateHtmlIds": 0,
   "inlineScripts": 30,
   "javascriptSyntaxErrors": 0,
-  "eventHandlers": 165,
-  "missingEventHandlerBindings": [],
-  "sha256": "602acbd2e6377159e7f498480f3d3a62ff3eb44720aa68375364489d61012968",
+  "nodeVersion": "v22.16.0",
+  "uniqueHip": 204,
+  "uniqueSkyIndex": 204,
+  "missingStructuralFields": 0,
+  "structuralLinkChecksPassed": 204,
+  "rigel": {
+    "arabic_name": "رجل الجوزاء",
+    "iau_name": "Rigel",
+    "hip": 24436,
+    "designation": "β Ori",
+    "sky_index": 1019,
+    "dome_link_key": "hip:24436|sky:1019",
+    "status": "verified"
+  },
+  "sha256": "4904e7958998eb49453b570d28cd6407b0d8f1b77b2cab8387313f7159f29fb1",
+  "runtimeBrowserAutomation": "not_performed",
   "notes": [
-    "JavaScript syntax checked with Node.js v22.16.0.",
-    "All fonts, images and core star data are embedded in index.html."
+    "Static/structural audit completed.",
+    "Published index verified byte-for-byte by SHA-256 before commit."
   ]
 }
