@@ -1,0 +1,72 @@
+name: Najoom Apply Index r17
+
+on:
+  push:
+    paths:
+      - '.github/workflows/najoom-apply-index-r17.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rebuild exact index and verify SHA-256
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import base64
+          import hashlib
+          import json
+          import lzma
+
+          b64 = ''.join(
+              ''.join(Path(f'.najoom-linepatch.part{i}').read_text(encoding='utf-8').split())
+              for i in range(6)
+          )
+          patch = json.loads(lzma.decompress(base64.b64decode(b64)).decode('utf-8'))
+
+          index = Path('index.html')
+          old = index.read_bytes()
+          old_sha = hashlib.sha256(old).hexdigest()
+          assert old_sha == patch['old_sha256'], (old_sha, patch['old_sha256'])
+
+          lines = old.splitlines(keepends=True)
+          for op in reversed(patch['ops']):
+              replacement = base64.b64decode(op['data']).splitlines(keepends=True)
+              lines[op['i1']:op['i2']] = replacement
+
+          new = b''.join(lines)
+          new_sha = hashlib.sha256(new).hexdigest()
+          assert new_sha == patch['new_sha256'], (new_sha, patch['new_sha256'])
+          assert len(new) == patch['new_size'], (len(new), patch['new_size'])
+          assert len(lines) == patch['new_lines'], (len(lines), patch['new_lines'])
+
+          text = new.decode('utf-8')
+          assert '<title>نجوم العرب v2.6.5-r17' in text
+          assert 'content="2.6.5-r17" name="application-version"' in text
+          assert 'رجل الجوزاء' in text and '24436' in text and 'β Ori' in text
+
+          index.write_bytes(new)
+          Path('.najoom-final-verify.txt').write_text(
+              f'sha256={new_sha}\nbytes={len(new)}\nlines={len(lines)}\nversion=2.6.5-r17\nrigel_check=PASS\n',
+              encoding='utf-8'
+          )
+          print('VERIFIED', new_sha, len(new), len(lines))
+          PY
+
+      - name: Commit replacement and remove staging files
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm -f .najoom-index-lines.tsv .najoom-index-blocks.tsv .najoom-new-anchors.tsv .najoom-anchor-map.tsv
+          git rm -f .najoom-linepatch.part0 .najoom-linepatch.part1 .najoom-linepatch.part2 .najoom-linepatch.part3 .najoom-linepatch.part4 .najoom-linepatch.part5
+          git rm -f .github/workflows/najoom-index-manifest.yml .github/workflows/najoom-index-blocks.yml .github/workflows/najoom-anchor-map.yml .github/workflows/najoom-export-current-index.yml .github/workflows/najoom-apply-index-r17.yml
+          git add index.html .najoom-final-verify.txt
+          git commit -m 'fix: replace index.html with v2.6.5-r17 corrected star links'
+          git push
